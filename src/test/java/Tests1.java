@@ -5,38 +5,45 @@ import org.junit.Test;
 public class Tests1 {
 	@Test
 	public void createFamilyclass() {
-		const fam = new Family();
+		Family fam = new Family();
 	}
 	@Test
 	public void createsetParentOf() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 	}
 	@Test
+	public void onlytwoparents() {
+		Family fam = new Family();
+		fam.setParentOf("Vera", "George");
+		fam.setParentOf("Vera", "Vanessa");
+		assertFalse(fam.setParentOf("Vera", "V"));
+	}
+	@Test
 	public void createfemale() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.female("Vanessa");
 	}
 	@Test
 	public void createmale() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.male("George");
 	}
 	@Test
 	public void createfemaleandmale() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.female("Vanessa");
 	}
 	@Test
 	public void createfemaleandmaleconflict() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.female("Vanessa");
@@ -44,31 +51,31 @@ public class Tests1 {
 	}
 	@Test
 	public void createfemaleconflict() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		assertFalse(fam.isFemale("George"));
 	}
 	@Test
 	public void createmaleconflict() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		assertFalse(fam.isMale("George"));
 	}
 	@Test
 	public void querynewismale() {
-		const fam = new Family();
+		Family fam = new Family();
 		assertFalse(fam.isMale("George"));
 	}
 	@Test
 	public void querynewisfemale() {
-		const fam = new Family();
+		Family fam = new Family();
 		assertFalse(fam.isFemale("George"));
 	}
 	@Test
 	public void ismaledecuction() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.female("Vanessa");
@@ -77,7 +84,7 @@ public class Tests1 {
 	}
 	@Test
 	public void isfemaledecuction() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		fam.setParentOf("Vera", "Vanessa");
 		fam.male("Vanessa");
@@ -92,24 +99,24 @@ public class Tests1 {
 	}
 	@Test
 	public void creategetChildren() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		assertArrayEquals(fam.getChildren("George"),["Vera"]);
 	}
 	@Test
 	public void creategetParents() {
-		const fam = new Family();
+		Family fam = new Family();
 		fam.setParentOf("Vera", "George");
 		assertArrayEquals(fam.getParents("Vera"),["George"]);
 	}
 	@Test
 	public void querynewgetChildren() {
-		const fam = new Family();
+		Family fam = new Family();
 		assertArrayEquals(fam.getChildren("George"),[]);
 	}
 	@Test
 	public void querynewgetParents() {
-		const fam = new Family();
+		Family fam = new Family();
 		assertArrayEquals(fam.getParents("George"),[]);
 	}
 	
